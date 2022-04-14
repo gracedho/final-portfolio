@@ -50,7 +50,7 @@ ol {
     margin-top: 20px;
 }
 
-=
+
 
 img:nth-child(2n) {
     border: #990066 solid 3px;
@@ -104,7 +104,8 @@ footer {
 }
 
 .banner {
-    min-width: 500px;
+    width: 500px;
+    max-width: 500px;
 }
 
 form {
@@ -146,7 +147,7 @@ main li {
 
 #gridcontainer {
     display:grid;
-    grid-template-columns: fr fr fr;
+    grid-template-columns: fr fr fr fr;
     grid-template-rows: fr fr fr;
     column-gap: 15px;
 }
@@ -299,9 +300,31 @@ main li {
         display: block;
     }
 
+    .banner {
+        width: 300px;
+    }
 
+    .a, .b, .c, .d {
+        grid-column: 1 / span 1;
+    }
 
-}
+    .d {
+        grid-row: 1 / span 1;
+        justify-content: center;
+    }
+
+    .a {
+        grid-row: 2 / span 1;
+    }
+
+    .b {
+        grid-row: 3 / span 1;
+    }
+
+    .c {
+        grid-row: 4 / span 1;
+    }
+
 
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
