@@ -362,6 +362,10 @@ main li {
     .flip-card:focus .flip-card-inner {
       transform: none;
   }
+
+  .parallax {
+    background-attachment: scroll;
+  }
   }
 
 @media screen and (max-width: 900px){
