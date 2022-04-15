@@ -16,6 +16,16 @@ a {
     color: #000;
 }
 
+.parallax {
+    background-image: url("../images/brooklynbridge.jpg");
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+
 h1 {
     margin-top: 15px;
     font-family: 'Pacifico', Georgia, 'Times New Roman', Times, serif;
@@ -150,9 +160,10 @@ main li {
 
 #gridcontainer {
     display:grid;
-    grid-template-columns: 300px 500px 500px 300px;
-    grid-template-rows: 50px 50px 200px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     column-gap: 15px;
+    row-gap: 10px;
 }
 
 .a {
@@ -167,11 +178,11 @@ main li {
 }
 
 .c {
-    grid-column: 3 / span 1;
-    grid-row: 2 / span 2;
+    grid-column: 3 / span 2;
+    grid-row: 2 / span 1;
 }
 
-.d,  .flip-card {
+.d, .flip-card {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
 }
@@ -268,7 +279,6 @@ main li {
     animation-name: slidein;
 }
 
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 
 .flip-card {
     background-color: transparent;
@@ -286,32 +296,26 @@ main li {
     transition: transform 0.8s;
     transform-style: preserve-3d;
   }
+    /* Do an horizontal flip when you move the mouse over the flip box container */
   
+    .flip-card:hover .flip-card-inner,
+    .flip-card:focus-within .flip-card-inner,
+    .flip-card:active .flip-card-inner,
+    .flip-card:focus .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    /* Position the front and back side */
   
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  
-  .flip-card:hover .flip-card-inner,
-  .flip-card:focus-within .flip-card-inner,
-  .flip-card:active .flip-card-inner,
-  .flip-card:focus .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  
-  /* Position the front and back side */
-  
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    /* Safari */
-    backface-visibility: hidden;
-  }
-  
-  
-  /* Style the front side (fallback if image is missing) */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      /* Safari */
+      backface-visibility: hidden;
+    }  
+
+      /* Style the front side (fallback if image is missing) */
   
   .flip-card-front {
     background-color: #008CCC;
@@ -320,7 +324,7 @@ main li {
     color: black;
   }
   
-  
+    
   /* Style the back side */
   
   .flip-card-back {
@@ -328,6 +332,7 @@ main li {
     color: white;
     transform: rotateY(180deg);
   }
+
 @keyframes slidein {
     from {
       margin-left: 100%;
@@ -352,11 +357,11 @@ main li {
     }
 
     .flip-card:hover .flip-card-inner,
-  .flip-card:focus-within .flip-card-inner,
-  .flip-card:active .flip-card-inner,
-  .flip-card:focus .flip-card-inner {
-    transform: none;
-}
+    .flip-card:focus-within .flip-card-inner,
+    .flip-card:active .flip-card-inner,
+    .flip-card:focus .flip-card-inner {
+      transform: none;
+  }
   }
 
 @media screen and (max-width: 900px){
@@ -372,28 +377,27 @@ main li {
     .banner {
         width: 300px;
     }
-
     .a, .b, .c, .d {
-        grid-column: 1 / span 1;
+        grid-column: 1 / span 4;
     }
-
     .d {
-        grid-row: 1 / span 1;
+        grid-row: 2 / span 1;
         justify-content: center;
     }
-
     .a {
-        grid-row: 2 / span 1;
-    }
-
-    .b {
         grid-row: 3 / span 1;
     }
-
-    .c {
+    .b {
         grid-row: 4 / span 1;
     }
+    .c {
+        grid-row: 5 / span 1;
+    }
+    .parallax {
+        max-height: 100px;
+    }
 
+}
 
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
