@@ -385,7 +385,7 @@ main li {
         grid-column: 1 / span 4;
     }
     .d {
-        grid-row: 2 / span 1;
+        grid-row: 1 / span 2;
         justify-content: center;
     }
     .a {
